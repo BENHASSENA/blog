@@ -1,29 +1,48 @@
-import React, { useState } from 'react'
+
 import './App.css';
 import Navbar from './components/Navbar';
-import List from './components/List';
-import data from './data';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Accueil from './pages/Accueil'
-import Apropos from './pages/Apropos'
-import Contact from './pages/Contact'
-import Projets from './pages/Projets'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Accueil from './pages/Accueil';
+import Apropos from './pages/Apropos';
+import Contact from './pages/Contact';
+import Projets from './pages/Projets';
+import { CSSTransition } from 'react-transition-group';
+import { gsap } from 'gsap';
+
+const routes = [
+  { path: '/', name: 'Accueil', Component: Accueil},
+  { path: '/apropos', name: 'Apropos', Component: Apropos},
+  { path: '/projets', name: 'Projets', Component: Projets},
+  { path: '/contact', name: 'Contact', Component: Contact},
+]
 
 
 function App() {
-  const [student, setStudent] = useState(data);
+ 
   return (
     <Router>
       <div className="App">
         <Navbar/>
         <Switch>
-          <Route path="/">
-            <List student={student}/>
-            <button className="btn" onClick={() => setStudent ([])}>Refresh</button>
-          </Route>
-          <Route path="/apropos component={Apropos}"/>
-          <Route path="/projets component={Projets}"/>
-          <Route path="/contact component={Contact}"/>
+           {routes.map(({path, Component}) => (
+              <Route key={path} exact path= {path}>
+                {({match}) => (
+                  <CSSTransition>
+                    <>
+                       <Component/>
+                    </>
+                  </CSSTransition>
+                )}
+              </Route>
+          ))}
+
+            <Route path="/" exact component={Accueil}>      
+            </Route>
+            <Route path='/apropos' component={Apropos}/>
+            <Route path='/projets' component={Projets}>
+            </Route>
+            <Route path='/contact' component={Contact}/>
+     
         </Switch>
       </div>
     </Router>

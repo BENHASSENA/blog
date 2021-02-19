@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -8,10 +8,10 @@ const Navbar = () => {
         <nav>
             <ul>
 
-                <li> <Link> <a href="#">Accueil</a> </Link> </li>
-                <li> <Link> <a href="#" >Projets</a> </Link> </li>
-                <li> <Link> <a href="#">A Propos</a> </Link> </li>
-                <li> <Link> <a href="#">Contact</a> </Link> </li>
+                <li><NavLink to ="/" exact activeClassName="selected"> Accueil</NavLink></li>
+                <li><NavLink to ="/apropos"  activeClassName="selected"> A propos</NavLink></li>
+                <li><NavLink to ="/projets"  activeClassName="selected"> Projets</NavLink></li>
+                <li><NavLink to ="/contact"  activeClassName="selected"> Contact </NavLink> </li>
 
             </ul>
         </nav>

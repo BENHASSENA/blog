@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.card{
+  background-color: red;
+  display: flex;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -140,4 +145,9 @@ li{
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.selected{
+  background-color:red;
 }
