@@ -6,7 +6,7 @@ import Accueil from './pages/Accueil';
 import Apropos from './pages/Apropos';
 import Contact from './pages/Contact';
 import Projets from './pages/Projets';
-import { CSSTransition } from 'react-transition-group';
+import { Transition } from 'react-transition-group';
 import { gsap } from 'gsap';
 
 const routes = [
@@ -23,15 +23,16 @@ function App() {
     <Router>
       <div className="App">
         <Navbar/>
+        <Transition timeout={600} className="fade">
         <Switch>
            {routes.map(({path, Component}) => (
               <Route key={path} exact path= {path}>
                 {({match}) => (
-                  <CSSTransition>
+                 
                     <>
                        <Component/>
                     </>
-                  </CSSTransition>
+                 
                 )}
               </Route>
           ))}
@@ -44,6 +45,7 @@ function App() {
             <Route path='/contact' component={Contact}/>
      
         </Switch>
+        </Transition>
       </div>
     </Router>
   );
