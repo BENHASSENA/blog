@@ -2,17 +2,15 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Accueil from './pages/Accueil';
-import Apropos from './pages/Apropos';
+import Home from './pages/Home';
 import Contact from './pages/Contact';
-import Projets from './pages/Projets';
+import Blog from './pages/Blog';
 import { Transition } from 'react-transition-group';
-import { gsap } from 'gsap';
+import Footer from './components/Footer';
 
 const routes = [
-  { path: '/', name: 'Accueil', Component: Accueil},
-  { path: '/apropos', name: 'Apropos', Component: Apropos},
-  { path: '/projets', name: 'Projets', Component: Projets},
+  { path: '/', name: 'Home', Component: Home},
+  { path: '/projets', name: 'Blog', Component: Blog},
   { path: '/contact', name: 'Contact', Component: Contact},
 ]
 
@@ -33,19 +31,18 @@ function App() {
                        <Component/>
                     </>
                  
+                 
                 )}
               </Route>
           ))}
-
-            <Route path="/" exact component={Accueil}>      
+            <Route path="/" exact component={Home}>      
             </Route>
-            <Route path='/apropos' component={Apropos}/>
-            <Route path='/projets' component={Projets}>
+            <Route path='/blog' component={Blog}>
             </Route>
             <Route path='/contact' component={Contact}/>
-     
         </Switch>
         </Transition>
+        <Footer/>
       </div>
     </Router>
   );

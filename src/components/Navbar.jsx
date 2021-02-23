@@ -9,8 +9,7 @@ const Navbar = () => {
             <ul>
 
                 <li><NavLink to ="/" exact activeClassName="selected"> Accueil</NavLink></li>
-                <li><NavLink to ="/apropos"  activeClassName="selected"> A propos</NavLink></li>
-                <li><NavLink to ="/projets"  activeClassName="selected"> Projets</NavLink></li>
+                <li><NavLink to ="/projets"  activeClassName="selected"> Blog</NavLink></li>
                 <li><NavLink to ="/contact"  activeClassName="selected"> Contact </NavLink> </li>
 
             </ul>
