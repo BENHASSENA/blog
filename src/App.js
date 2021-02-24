@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import { Transition } from 'react-transition-group';
 import Footer from './components/Footer';
+import Formulaire from './components/Formulaire';
 
 const routes = [
   { path: '/', name: 'Home', Component: Home},
@@ -38,10 +39,12 @@ function App() {
             <Route path="/" exact component={Home}>      
             </Route>
             <Route path='/blog' component={Blog}>
+
             </Route>
             <Route path='/contact' component={Contact}/>
         </Switch>
         </Transition>
+      
         <Footer/>
       </div>
     </Router>

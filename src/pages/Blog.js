@@ -10,8 +10,14 @@ const Blog = () => {
         <div className="card"> Jour 4</div>
         <div className="card"> Jour 5</div>
         <div className="card"> Jour 6</div>
+
+        
         </div>
         </>
+
+
+
+
     )
 }
 
