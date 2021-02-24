@@ -7,7 +7,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import { Transition } from 'react-transition-group';
 import Footer from './components/Footer';
-import Formulaire from './components/Formulaire';
+
 
 const routes = [
   { path: '/', name: 'Home', Component: Home},
