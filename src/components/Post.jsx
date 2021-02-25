@@ -1,27 +1,32 @@
 // page qui affiche tous les posts
-const Post = ({messages}) => {
+const Post = ({myFetch}) => {
+    
     return(
         <>
 
-        {messages.map((post)=>{
-            const {id, titlepost, contentpost, tagspost} = post;
-            console.log( {id,titlepost, contentpost, tagspost});
+        {myFetch.map((post)=>{
+            const {id, title, content, tags} = post;
 
             return (
                 
                 <article className="messages" key={id}>
                     <div className="card"> 
-                        <h2>{titlepost}</h2>
-                        <p>{contentpost.substring(0,50)}</p>
-                        <p>{tagspost}</p>
+                        <h2>{title}</h2>
+                        <p>{content.substring(0,50)}</p>
+                        <p>{tags}</p>
                     </div>
                 </article>             
                 
             )
         })}
+
+        
           
         </>
     )
 }
 
+
+
 export default Post
+
