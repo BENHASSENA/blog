@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 
 const Blog = () => {
@@ -9,10 +10,20 @@ const Blog = () => {
     const [submit,setSubmit] = useState(false);
     const [post,setPost] = useState([]);
 
+    function uploadData(){
+        const postUrl = 'http://localhost:5000/api/v1/posts';
+        axios.post(postUrl, post)
+        .then(function(response){
+            console.log(response);
+        })
+
+    }
+
+
 
     useEffect(() => {
         console.log(post)
-
+        uploadData();
     }, [post])
 
     const handleSubmit = (e) => {
@@ -21,7 +32,7 @@ const Blog = () => {
         setPost({
             ...{title},
             ...{content},
-            ...{tags}
+            ...{tags} 
         });
     }
 

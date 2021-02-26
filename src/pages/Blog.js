@@ -1,20 +1,20 @@
 import Formulaire from '../components/Formulaire'
 import Post from '../components/Post'
-import data from '../data'
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 
-const url = 'http://localhost:3001/api/v1/posts'
+const url = 'http://localhost:5000/api/v1/posts'
 
 const Blog = () => {
 
-    const [messages, setMessages] = useState(data)
+    // const [messages, setMessages] = useState(data)
     const [myFetch, setMyFetch] = useState([])
+
     const fetchApi = async () =>{
         try{
-            const response = await fetch(url)
-            const myFetch = await response.json()
-            setMyFetch(myFetch);
+            const response = await axios.get(url)
+            setMyFetch(response.data);
             console.log(myFetch)
     
         } catch(error){
