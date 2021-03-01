@@ -11,6 +11,11 @@ const Blog = () => {
     // const [messages, setMessages] = useState(data)
     const [myFetch, setMyFetch] = useState([])
 
+    const maj = document.querySelector('#maj');
+    maj.onclick = () =>{
+       fetchApi()
+    }
+
     const fetchApi = async () =>{
         try{
             const response = await axios.get(url)
@@ -33,6 +38,7 @@ const Blog = () => {
         <div className="contentcard">
             <Post myFetch={myFetch}/>
             <Formulaire/>
+            <button id="maj"> mettre à jour</button>
         </div>
         </>
     )

@@ -9,17 +9,17 @@ const Blog = () => {
     const [tags,setTags] = useState([]);
     const [submit,setSubmit] = useState(false);
     const [post,setPost] = useState([]);
+    
 
     function uploadData(){
+
         const postUrl = 'http://localhost:5000/api/v1/posts';
         axios.post(postUrl, post)
         .then(function(response){
-            console.log(response);
+        console.log(response);
         })
 
     }
-
-
 
     useEffect(() => {
         console.log(post)
@@ -53,6 +53,8 @@ const Blog = () => {
                 setTags(newTags);
             }}/>
             <input type="submit" value="Créer mon post"/>
+
+           
         </form>
         </div>
     )
