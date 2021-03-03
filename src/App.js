@@ -7,12 +7,15 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import { Transition } from 'react-transition-group';
 import Footer from './components/Footer';
+import Single from './pages/Single';
 
 
 const routes = [
-  { path: '/', name: 'Home', Component: Home},
+
+  { path: '/projets/:title', name: 'Blog', Component: Single},
   { path: '/projets', name: 'Blog', Component: Blog},
   { path: '/contact', name: 'Contact', Component: Contact},
+  { path: '/', name: 'Home', Component: Home},
 ]
 
 
@@ -25,26 +28,18 @@ function App() {
         <Transition timeout={600} className="fade">
         <Switch>
            {routes.map(({path, Component}) => (
-              <Route key={path} exact path= {path}>
+              <Route key={path} path= {path}>
                 {({match}) => (
                  
                     <>
                        <Component/>
                     </>
                  
-                 
                 )}
               </Route>
           ))}
-            <Route path="/" exact component={Home}>      
-            </Route>
-            <Route path='/blog' component={Blog}>
-
-            </Route>
-            <Route path='/contact' component={Contact}/>
         </Switch>
         </Transition>
-      
         <Footer/>
       </div>
     </Router>

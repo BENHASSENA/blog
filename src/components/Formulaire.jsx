@@ -13,7 +13,7 @@ const Blog = () => {
 
     function uploadData(){
 
-        const postUrl = 'http://localhost:5000/api/v1/posts';
+        const postUrl = 'http://localhost:3001/api/v1/posts';
         axios.post(postUrl, post)
         .then(function(response){
         console.log(response);

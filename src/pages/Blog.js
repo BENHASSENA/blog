@@ -4,17 +4,19 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
-const url = 'http://localhost:5000/api/v1/posts'
+const url = 'http://localhost:3001/api/v1/posts'
 
 const Blog = () => {
 
     // const [messages, setMessages] = useState(data)
     const [myFetch, setMyFetch] = useState([])
 
-    const maj = document.querySelector('#maj');
-    maj.onclick = () =>{
-       fetchApi()
-    }
+    // const uploa = document.querySelector('#maj');
+    // maj.onclick = () =>{
+    //    fetchApi()
+    // }
+
+   
 
     const fetchApi = async () =>{
         try{
@@ -26,6 +28,11 @@ const Blog = () => {
             console.log(error)
         }
     }
+
+    const uploadData = () => {
+        fetchApi();
+    };
+
     useEffect(() =>{
         fetchApi()
       },[])
@@ -38,7 +45,8 @@ const Blog = () => {
         <div className="contentcard">
             <Post myFetch={myFetch}/>
             <Formulaire/>
-            <button id="maj"> mettre à jour</button>
+            {/* <button className="button" onClick={() => window.location.uploadData(false)}>Affichez vos posts</button>
+            <button id="maj" onclick={uploadData}> Mettre à jour</button> */}
         </div>
         </>
     )
